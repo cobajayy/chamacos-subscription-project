@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require ('method-override');
 
-const PORT = process.env.PORT ? process.env.PORT : '6000';
+const PORT = process.env.PORT ? process.env.PORT : '4000';
 
 mongoose.connect(process.env.MONGODB_URI);
 

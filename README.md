@@ -9,9 +9,9 @@ GitHub Repo link: <link>https://github.com/cobajayy/chamacos-subscription-projec
 
 <h3>Fresh roasted coffee delivered to your door! </h3>
 <br></br>
-<p>Goal: My goal was to create a subscription based website that allows users to customize their coffee beans based on their perferences (ie. brewing method, whole beans or ground, origin, and more)</p>
+<p>Goal: My goal was to create a subscription based website that allows users to customize their coffee beans based on their perferences (ie. brewing method, whole beans or ground, origin, and more). As a user you will be able to sign up, sign in, add subsciptions, edit your subscriptions, delete your subscriptions, view other users subscriptions (read me only), and sign out. </p>
 
-<p>Project planning link: </p> <link>https://trello.com/b/9qlOXeCi/project-2-board</link>
+Project planning link: <link>https://trello.com/b/9qlOXeCi/project-2-board</link>
 <br></br>
 Deployed Link: Coming Monday
 <br></br>

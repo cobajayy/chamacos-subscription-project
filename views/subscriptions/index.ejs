@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <title>Your Subscriptions</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div class="index-body">
+        
+            <h1>Welcome <%= user.username.charAt(0).toUpperCase()+user.username.slice(1)%>!</h1>
+            <h2>Check Out Your Subscriptions</h2>
+        
+
+        <% if(subscriptions.length) { %>
+        <ul class="ul">
+            <% subscriptions.forEach((subscription) => { %>
+                <li class="li">
+                    <a class="subscription-cards" href="/users/<%= user._id%>/subscriptions/<%=subscription._id%>"><%= subscription.name.charAt(0).toUpperCase()+subscription.name.slice(1) %> </a>
+                </li>
+            <% }) %>
+        </ul>
+        
+        <% } else { %>
+            <h4>You have no subscriptions yet! Let's create a new one!</h4>
+            <% } %>
+    
+            <a class="subscription-link" href="/users/<%=user._id%>/subscriptions/new">Add a new Subscription</a>
+    </div>
+        
+</body>
+</html>

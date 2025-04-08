@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <title>Edit <%=subscription.name%></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="edit-body">
+    <h1>Edit <%=subscription.name%></h1>
+
+    <form class="edit-form" action="/users/<%= user._id %>/subscriptions/<%=subscription._id%>?_method=PUT" method="POST">
+        <div>
+            <label class="edit-label" for="name">Name your Subscription:</label>
+            <input class="edit-input" type="text" name="name" id="name" value="<%=subscription.name%>">
+        </div>
+        <div>
+            <label class="edit-label" for="brewingMethod">Brewing Method:</label>
+            <select class="edit-select" name="brewingMethod" id="brewingMethod">
+                <option value="Drip" <%= subscription.brewingMethod === 'Drip' ? 'selected' : '' %>>Drip</option>
+                <option value="Pour Over" <%= subscription.brewingMethod === 'Pour Over' ? 'selected' : '' %>>Pour Over</option>
+                <option value="Espresso" <%= subscription.brewingMethod === 'Espresso' ? 'selected' : '' %>>Espresso</option>
+                <option value="French Press"<%= subscription.brewingMethod === 'French Press' ? 'selected' : '' %>>French Press</option>
+            </select>
+        </div>
+        <div>
+            <label class="edit-label" for="caffeine">Caffeine:</label>
+            <select class="edit-select" name="caffeine" id="caffeine">
+              <option value="Regular"<%= subscription.caffeine === 'Regular' ? 'selected' : '' %>>Regular</option>
+              <option value="Decaf"<%= subscription.caffeine === 'Decaf' ? 'selected' : '' %>>Decaf</option>
+            </select>
+          </div>
+          <div>
+            <label class="edit-label" for="beans">Beans:</label>
+            <select class="edit-select" name="beans" id="beans">
+                <option value="Whole" <%=subscription.beans === 'Whole' ? 'selected' : '' %>>Whole</option>
+                <option value="Ground" <%=subscription.beans === 'Ground' ? 'seleced' : '' %>>Ground</option>
+            </select>
+          </div>
+          <div>
+            <label class="edit-label" for="roast">Roast:</label>
+            <select class="edit-select" name="roast" id="roast">
+                <option value="Light" <%= subscription.roast === 'Light' ? 'selected' : '' %>>Light</option>
+                <option value="Medium"<%= subscription.roast === 'Medium' ? 'selected' : '' %>>Medium</option>
+                <option value="Dark" <%= subscription.roast === 'Dark' ? 'selected' : '' %>>Dark</option>
+            </select>
+        </div>
+          <div>
+            <label class="edit-label" for="origin">Origin:</label>
+            <select class="edit-select" name="origin" id="origin">
+                <option value="South America" <%= subscription.origin === 'South America' ? 'selected' : '' %>>South America</option>
+                <option value="North America" <%= subscription.origin === 'North America' ? 'selected' : '' %>>North America</option>
+                <option value="Africa" <%= subscription.origin === 'Africa' ? 'selected' : '' %>>Africa</option>
+                <option value="Asia" <%= subscription.origin === 'Asia' ? 'selected' : '' %>>Asia</option>
+            </select>
+        </div>
+          <div>
+            <label class="edit-label" for="quantity">Quantity:</label>
+            <select class="edit-select" name="quantity" id="quantity">
+                <option value="1 Lb" <%= subscription.quantity === '1 Lb' ? 'selected' : '' %>>1 Lb</option>
+                <option value="2 Lbs" <%= subscription.quantity === '2 Lbs' ? 'selected' : '' %>>2 Lbs</option>
+                <option value="5 Lbs" <%= subscription.quantity === '5 Lbs' ? 'selected' : '' %>>5 Lbs</option>
+            </select>
+        </div>
+          <div>
+            <label class="edit-label" for="deliveryFrequency">Delivery Frequency:</label>
+            <select class="edit-select" name="deliveryFrequency" id="deliveryFrequency">
+                <option value="Every Week" <%= subscription.deliveryFrequency === 'Every Week' ? 'selected' : '' %>>Every Week</option>
+                <option value="2 Weeks"<%= subscription.deliveryFrequency === '2 Weeks' ? 'selected' : '' %>>2 Weeks</option>
+                <option value="3 Weeks" <%= subscription.deliveryFrequency === '3 Weeks' ? 'selected' : '' %>>3 Weeks</option>
+                <option value="4 Weeks" <%= subscription.deliveryFrequency === '4 Weeks' ? 'selected' : '' %>>4 Weeks</option>
+            </select>
+        </div>
+    
+          <button type="submit">Edit Subscription</button>
+    </form>
+  </div>
+</body>
+</html>

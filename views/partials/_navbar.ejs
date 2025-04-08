@@ -1,0 +1,24 @@
+<!-- views/partials/_navbar.ejs -->
+
+<link rel="stylesheet" href="/stylesheets/partials.css" />
+
+<nav>
+  <% if(user) { %>
+  <div class="navbar">
+    <a id="nav-header" href="/">Chamaco's Coffee</a>
+    <div class="nav-links">
+      <a class="authlink" href="/users/<%= user._id %>/subscriptions">Your Subscriptions</a>
+      <a class="authlink" href="/users">Other Coffee Lovers</a>
+      <a class="authlink" href="/auth/sign-out">Sign Out</a>
+    </div>
+  </div>
+   <% } else { %>
+  <div class="navbar">
+    <h1 id="nav-header">Chamaco's coffee</h1>
+    <div class="nav-links">
+      <a class="authlink" href="/auth/sign-up">Sign Up</a>
+      <a class="authlink" href="/auth/sign-in">Sign In</a>
+    </div>
+  </div>
+  <% } %>
+</nav>

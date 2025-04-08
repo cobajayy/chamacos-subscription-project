@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <title>New Subscription</title>
+</head>
+<body>    
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="new-body">
+      <h1>Create a New Subscriptions</h1>
+      <form class="new-form" action="/users/<%= user._id %>/subscriptions" method="POST">
+        <div>
+            <label class="new-label" for="name">Name your Subscription:</label>
+            <input class="new-input" type="text" name="name" id="name" required>
+        </div>
+
+          <div>
+              <label class="new-label" for="brewingMethod">Brewing Method:</label>
+              <select class="new-select" name="brewingMethod" id="brewingMethod">
+                  <option value="Drip">Drip</option>
+                  <option value="Pour Over">Pour Over</option>
+                  <option value="Espresso">Espresso</option>
+                  <option value="French Press">French Press</option>
+              </select>
+          </div>
+          <div>
+              <label class="new-label" for="caffeine">Caffeine:</label>
+              <select class="new-select" name="caffeine" id="caffeine">
+                <option value="Regular">Regular</option>
+                <option value="Decaf">Decaf</option>
+              </select>
+            </div>
+            <div>
+              <label class="new-label" for="beans">Beans:</label>
+              <select class="new-select" name="beans" id="beans">
+                  <option value="Whole">Whole</option>
+                  <option value="Ground">Ground</option>
+              </select>
+            </div>
+            <div>
+              <label class="new-label" for="roast">Roast:</label>
+              <select class="new-select" name="roast" id="roast">
+                  <option value="Light">Light</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Dark">Dark</option>
+              </select>
+          </div>
+            <div>
+              <label class="new-label" for="origin">Origin:</label>
+              <select class="new-select" name="origin" id="origin">
+                  <option value="South America">South America</option>
+                  <option value="North America">North America</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Asia">Asia</option>
+              </select>
+          </div>
+            <div>
+              <label class="new-label" for="quantity">Quantity:</label>
+              <select class="new-select" name="quantity" id="quantity">
+                  <option value="1 Lb">1 Lb</option>
+                  <option value="2 Lbs">2 Lbs</option>
+                  <option value="5 Lbs">5 Lbs</option>
+              </select>
+          </div>
+            <div>
+              <label class="new-label" for="deliveryFrequency">Delivery Frequency:</label>
+              <select class="new-select" name="deliveryFrequency" id="deliveryFrequency">
+                  <option value="Every Week">Every Week</option>
+                  <option value="2 Weeks">2 Weeks</option>
+                  <option value="3 Weeks">3 Weeks</option>
+                  <option value="4 Weeks">4 Weeks</option>
+              </select>
+          </div>
+      
+      
+            <button type="submit">Add Subscription</button>
+      </form>
+    </div>
+</body>
+</html>

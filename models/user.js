@@ -1,34 +1,43 @@
 const mongoose = require('mongoose');
 
 const subscriptionSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
     brewingMethod: {
         type: String,
-        enum: ['drip', 'pour-over', 'espresso', 'french press'], 
+        enum: ['Drip', 'Pour Over', 'Espresso', 'French Press'], 
         required: true,
     }, 
-    caffiene: {
+    caffeine: {
         type: String,
-        enum: ['regular', 'decaf'],
+        enum: ['Regular', 'Decaf'],
+        required: true,
+    },
+    beans: {
+        type: String,
+        enum: ['Whole', 'Ground'],
         required: true,
     },
     roast: {
         type: String,
-        enum: ['light', 'medium', 'dark', 'whichever'],
+        enum: ['Light', 'Medium', 'Dark'],
         required: true,
     },
     origin: {
         type: String,
-        enum: ['south american', 'north american', 'africa', 'asia'],
+        enum: ['South America', 'North America', 'Africa', 'Asia'],
         required: true,
     },
     quantity: {
         type: String,
-        enum: ['1 lbs', '2 lbs', '5 lbs'],
+        enum: ['1 Lb', '2 Lbs', '5 Lbs'],
         required: true,
     },
     deliveryFrequency: {
         type: String,
-        enum: ['1 week', '2 weeks', '3 weeks', '4 weeks'],
+        enum: ['Every Week', '2 Weeks', '3 Weeks', '4 Weeks'],
         required: true,
     },
 });

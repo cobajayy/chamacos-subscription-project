@@ -1,0 +1,46 @@
+  /* public/stylesheets/partials.css */
+  @font-face {
+    font-family: "permenant-marker";
+    src: url(PermanentMarker-Regular.ttf)
+}
+
+nav{
+    font-family: 'permenant-marker', sans-serif;
+    background-color: white;
+
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+    height: 10vh;
+    padding: 5px 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid black;
+  
+  }
+  
+  #nav-header {
+    color: black;
+    size: 2em !important;
+    font-size: 2em;
+    margin: 0;
+    text-decoration: none;
+  }
+  #nav-header:hover {
+    color: hsl(0, 0%, 30%);
+  }
+  .authlink {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  .authlink:hover {
+    color: hsl(0, 0%, 30%);
+  }
+  

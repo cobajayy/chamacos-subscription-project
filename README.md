@@ -2,7 +2,7 @@
 ![Chamaco's Coffe Logo](/public/assets/Chamacos-logo.png)
 <br></br>
 
-GitHub Repo link: <https://github.com/cobajayy/chamacos-subscription-project.git>
+GitHub Repo link: <link>https://github.com/cobajayy/chamacos-subscription-project.git</link>
 <br></br>
 
 <h1>Welcome to Chamaco's Coffee Subscription! </h1>
@@ -11,7 +11,7 @@ GitHub Repo link: <https://github.com/cobajayy/chamacos-subscription-project.git
 <br></br>
 <p>Goal: My goal was to create a subscription based website that allows users to customize their coffee beans based on their perferences (ie. brewing method, whole beans or ground, origin, and more)</p>
 
-<p>Project planning link: <https://trello.com/b/9qlOXeCi/project-2-board> </p>
+<p>Project planning link: </p> [project board](https://trello.com/b/9qlOXeCi/project-2-board)
 Deployed Link: Coming Monday
 <br></br>
 <p>Technologies: My main technology used was JavaScript, MongoDB, Node.js, CSS, and HTML.  I used packages within these technologies such as:

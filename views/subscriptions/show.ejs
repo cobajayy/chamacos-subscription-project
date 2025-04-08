@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- views/applications/show.ejs -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- views/applications/show.ejs -->
 
-<link rel="stylesheet" href="/stylesheets/show.css" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
 
     <title>
-        <%= subscription.name.charAt(0).toUpperCase()+subscription.name.slice(1) %>
+      <%= subscription.name.charAt(0).toUpperCase()+subscription.name.slice(1)
+      %>
     </title>
-</head>
+  </head>
 
-<body>
+  <body>
     <%- include('../partials/_navbar.ejs') %>
 
     <div class="show-body">
-        <div class="show-header">
-            <h1><%= subscription.name.charAt(0).toUpperCase()+subscription.name.slice(1) %></h1>
-            <div class="show-sidebar">
+      <div class="show-header">
+        <h1>
+          <%=
+          subscription.name.charAt(0).toUpperCase()+subscription.name.slice(1)
+          %>
+        </h1>
+        <div class="show-sidebar">
+          <div class="show-actions">
+            <a
+              href="/users/<%= user._id %>/subscriptions/<%=subscription._id%>/edit"
+              >Edit Subscription</a
+            >
 
-                <div class="show-actions">
-                    <a href="/users/<%= user._id %>/subscriptions/<%=subscription._id%>/edit">Edit Subscription</a>
-
-                    <form action="/users/<%= user._id%>/subscriptions/<%= subscription._id%>?_method=DELETE" method="POST">
-
-                        <button type="submit">Delete Subscription</button>
-                    </form>    
-                </div>
-            </div>
+            <form
+              action="/users/<%= user._id%>/subscriptions/<%= subscription._id%>?_method=DELETE"
+              method="POST"
+            >
+              <button type="submit">Delete Subscription</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
     <div class="show-notes-container">
-        <div class="show-notes">
-            <ul>
-                <li>
-                    <p>Brewing Method: <%= subscription.brewingMethod %> </p>
-                    <p>Caffeine: <%= subscription.caffeine %></p>
-                    <p>Beans: <%= subscription.beans %></p>
-                    <p>Roast: <%= subscription.roast %></p>
-                    <p>Origin: <%= subscription.origin %></p>
-                    <p>Quantity: <%= subscription.quantity %></p>
-                    <p>Delivery Frequency: <%= subscription.deliveryFrequency %></p>
-                </li>
-            </ul>
-        </div>
+      <div class="show-notes">
+        <ul>
+          <li>
+            <p>Brewing Method: <%= subscription.brewingMethod %></p>
+            <p>Caffeine: <%= subscription.caffeine %></p>
+            <p>Beans: <%= subscription.beans %></p>
+            <p>Roast: <%= subscription.roast %></p>
+            <p>Origin: <%= subscription.origin %></p>
+            <p>Quantity: <%= subscription.quantity %></p>
+            <p>Delivery Frequency: <%= subscription.deliveryFrequency %></p>
+          </li>
+        </ul>
+      </div>
     </div>
-   </body>
-
-   
+  </body>
 </html>

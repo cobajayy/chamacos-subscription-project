@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Other Coffee Lovers</title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('../partials/_navbar.ejs') %>
     <div class="index-body">
-            <h1>Other Coffee Lovers</h1>
-        
-            <h2>Check out what other's are drinking!</h2>
-        <ul class="ul">
-            <%allUsers.forEach((user) =>{ %>
-                <li class="li">
-                    <a class="users-cards" href="/users/<%=user._id%>">
-                        <%= user.username.charAt(0).toUpperCase()+user.username.slice(1)%>                </a>
-                </li>
-    
-            <% }) %>
-        </ul>
-    </div>
+      <h1>Other Coffee Lovers</h1>
 
-</body>
+      <h2>Check out what other's are drinking!</h2>
+      <ul class="ul">
+        <%allUsers.forEach((user) =>{ %>
+        <li class="li">
+          <a class="users-cards" href="/users/<%=user._id%>">
+            <%= user.username.charAt(0).toUpperCase()+user.username.slice(1)%>
+          </a>
+        </li>
+
+        <% }) %>
+      </ul>
+    </div>
+  </body>
 </html>

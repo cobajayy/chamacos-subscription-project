@@ -4,33 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/stylesheets/show.css">
-    <title> <%= foundUser.username.charAt(0).toUpperCase()+foundUser.username.slice(1)%></title>
+    <link rel="stylesheet" href="/stylesheets/show.css" />
+    <title>
+      <%=
+      foundUser.username.charAt(0).toUpperCase()+foundUser.username.slice(1)%>
+    </title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-   <div class="users-show-header">
-     <h1> <%= foundUser.username.charAt(0).toUpperCase()+foundUser.username.slice(1)%>'s Subscriptions</h1>
-   </div>
+    <div class="users-show-header">
+      <h1>
+        <%=
+        foundUser.username.charAt(0).toUpperCase()+foundUser.username.slice(1)%>'s
+        Subscriptions
+      </h1>
+    </div>
 
     <% if(foundUser.subscriptions.length) { %>
-      <div class="users-show-notes-container">
-        <div class="users-show-notes">
-
-          <ul>
-            <% foundUser.subscriptions.forEach((subscription) => { %>
-            <h3 class="users-show-h3"><%= subscription.name %></h3>
-            <p>Brewing Method: <%= subscription.brewingMethod %></p>
-            <p>Caffeine: <%= subscription.caffeine %></p>
-            <p>Beans: <%= subscription.beans %></p>
-            <p>Roast: <%= subscription.roast %></p>
-            <p>Origin: <%= subscription.origin %></p>
-            <% }) %>
-          </ul>
-          <% } else { %>
-          <h4 class="users-show-h4"><%=foundUser.username%> has no subscriptions yet!</h4>
-          <% } %>
-        </div>
+    <div class="users-show-notes-container">
+      <div class="users-show-notes">
+        <ul>
+          <% foundUser.subscriptions.forEach((subscription) => { %>
+          <h3 class="users-show-h3"><%= subscription.name %></h3>
+          <p>Brewing Method: <%= subscription.brewingMethod %></p>
+          <p>Caffeine: <%= subscription.caffeine %></p>
+          <p>Beans: <%= subscription.beans %></p>
+          <p>Roast: <%= subscription.roast %></p>
+          <p>Origin: <%= subscription.origin %></p>
+          <% }) %>
+        </ul>
+        <% } else { %>
+        <h4 class="users-show-h4">
+          <%=foundUser.username%> has no subscriptions yet!
+        </h4>
+        <% } %>
       </div>
+    </div>
   </body>
 </html>

@@ -1,98 +1,103 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const User = require('../models/user.js');
+const User = require("../models/user.js");
 
-router.get('/', async (req, res) => {
-    try {
-        const currentUser = await User.findById(req.session.user._id);
+router.get("/", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
 
-        res.render('subscriptions/index.ejs',{
-            subscriptions: currentUser.subscriptions,
-        } 
-        );
-    } catch (error) {
-        console.log(error);
-        res.redirect('/');
-    }
+    res.render("subscriptions/index.ejs", {
+      subscriptions: currentUser.subscriptions,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
 });
 
-router.get('/new', async (req, res) => {
-    res.render('subscriptions/new.ejs');
+router.get("/new", async (req, res) => {
+  res.render("subscriptions/new.ejs");
 });
 
+router.post("/", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
 
-router.post('/', async (req,res) => {
-    try{
-        const currentUser = await User.findById(req.session.user._id)
+    currentUser.subscriptions.push(req.body);
+    await currentUser.save();
+    res.redirect(`/users/${currentUser._id}/subscriptions`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
 
-        currentUser.subscriptions.push(req.body)
-        await currentUser.save();
-        res.redirect(`/users/${currentUser._id}/subscriptions`)
-    } catch (error) {
-        console.log(error)
-        res.redirect('/')
-    }
-})
+router.get("/:subscriptionId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
 
-router.get('/:subscriptionId', async (req,res) => {
-   try {
-        const currentUser = await User.findById(req.session.user._id)
+    const subscription = currentUser.subscriptions.id(
+      req.params.subscriptionId
+    );
 
-        const subscription = currentUser.subscriptions.id(req.params.subscriptionId)
+    res.render("subscriptions/show.ejs", {
+      subscription: subscription,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
 
-        res.render('subscriptions/show.ejs', {
-            subscription: subscription,
-        })
+router.delete("/:subscriptionId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
 
-   } catch (error) {
-    console.log(error)
-    res.redirect('/')
-   }
-})
+    currentUser.subscriptions.id(req.params.subscriptionId).deleteOne();
 
-router.delete('/:subscriptionId', async (req,res) => {
-    try {
-        const currentUser = await User.findById(req.session.user._id)
+    await currentUser.save();
 
-        currentUser.subscriptions.id(req.params.subscriptionId).deleteOne()
+    res.redirect(`/users/${currentUser._id}/subscriptions`);
+  } catch (error) {
+    res.redirect("/");
+  }
+});
 
-        await currentUser.save()
+router.get("/:subscriptionId/edit", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
 
-        res.redirect(`/users/${currentUser._id}/subscriptions`)
-    } catch (error) {
-        res.redirect('/')
-    }
-})
+    const subscription = currentUser.subscriptions.id(
+      req.params.subscriptionId
+    );
 
-router.get('/:subscriptionId/edit', async (req, res) => {
-    try {
-        const currentUser = await User.findById(req.session.user._id)
+    res.render("subscriptions/edit.ejs", {
+      subscription: subscription,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
 
-       const subscription = currentUser.subscriptions.id(req.params.subscriptionId)
+router.put("/:subscriptionId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
 
-        res.render('subscriptions/edit.ejs', {
-            subscription: subscription,
-        })
-    } catch (error) {
-        console.log(error)
-        res.redirect('/')
-    }
-})
+    const subscription = currentUser.subscriptions.id(
+      req.params.subscriptionId
+    );
 
-router.put('/:subscriptionId', async (req,res) => {
-    try {
-        const currentUser = await User.findById(req.session.user._id)
-
-        const subscription = currentUser.subscriptions.id(req.params.subscriptionId)
-
-        subscription.set(req.body)
-        await currentUser.save()
-        res.redirect(`/users/${currentUser._id}/subscriptions/${req.params.subscriptionId}`)
-    } catch (error) {
-        console.log(error)
-        res.redirect('/')
-    }
-})
+    subscription.set(req.body);
+    await currentUser.save();
+    res.redirect(
+      `/users/${currentUser._id}/subscriptions/${req.params.subscriptionId}`
+    );
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
 
 module.exports = router;
